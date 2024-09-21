@@ -1,0 +1,35 @@
+<!-- Navbar -->
+<div
+  #navigationWrapper
+  class="navigation-wrapper"
+  [ngClass]="{ 'nav-hidden': isNavHidden }"
+>
+  <div class="container">
+    <header class="header">
+      <a routerLink="/#hero" class="logo">
+        <p>Jeffrey</p>
+        <p class="logo-gradient">Jordan</p>
+      </a>
+      <div class="nav-items">
+        <input type="checkbox" id="menu-btn" #menuBtn />
+        <label class="menu-icon" for="menu-btn">
+          <span class="navicon"></span>
+        </label>
+        <ul class="menu" #menu>
+          <li *ngFor="let link of navigationItems">
+            <a [href]="link.href" (click)="hideMenu()">{{ link.label }}</a>
+          </li>
+        </ul>
+        <!-- <button id="theme-toggle" type="button" (click)="toggleTheme()">
+          <span *ngIf="isDarkTheme" class="d-block-light"
+            ><i class="fa fa-sun-o" aria-hidden="true"></i
+          ></span>
+          <span *ngIf="!isDarkTheme" class="d-block-dark"
+            ><i class="fa fa-moon-o" aria-hidden="true"></i
+          ></span>
+        </button> -->
+      </div>
+    </header>
+  </div>
+</div>
+<!-- Navbar -->

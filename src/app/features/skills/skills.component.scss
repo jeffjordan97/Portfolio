@@ -1,0 +1,21 @@
+section#skills .header p {
+  max-width: 650px;
+}
+
+#skills .skills {
+  display: grid;
+  gap: var(--s-l);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#skills h3 {
+  margin-bottom: var(--s-m);
+}
+
+#skills .technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-m);
+}

@@ -1,0 +1,21 @@
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-l);
+}
+.pi-star-fill {
+  color: #f79a23;
+}
+.review {
+  border-radius: var(--s-m);
+  padding: var(--s-l) var(--s-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-m);
+}
+
+@media (max-width: 768px) {
+  .reviews {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,81 @@
+<!-- Skills -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="header">
+      <p>SKILLS</p>
+      <h2>My Skills</h2>
+      <p>
+        Here's a snapshot 📸 of the core tools and technologies that drive my
+        work, empowering me to create efficient and innovative software
+        solutions 🌟 across various projects.
+      </p>
+    </div>
+    <ul class="skills">
+      <li>
+        <h3>Languages</h3>
+        <div class="technologies">
+          <div
+            class="technology box-shadow"
+            *ngFor="let technology of languages"
+          >
+            <img
+              class="technology-image"
+              [src]="technology.image"
+              loading="lazy"
+            />
+            <p>{{ technology.name }}</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <h3>Frameworks & Tools</h3>
+        <div class="technologies">
+          <div
+            class="technology box-shadow"
+            *ngFor="let technology of frameworksAndTools"
+          >
+            <img
+              class="technology-image"
+              [src]="technology.image"
+              loading="lazy"
+            />
+            <p>{{ technology.name }}</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <h3>Cloud & DevOps</h3>
+        <div class="technologies">
+          <div
+            class="technology box-shadow"
+            *ngFor="let technology of cloudDevOps"
+          >
+            <img
+              class="technology-image"
+              [src]="technology.image"
+              loading="lazy"
+            />
+            <p>{{ technology.name }}</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <h3>Other</h3>
+        <div class="technologies">
+          <div
+            class="technology box-shadow"
+            *ngFor="let technology of otherTechnologies"
+          >
+            <img
+              class="technology-image"
+              [src]="technology.image"
+              loading="lazy"
+            />
+            <p>{{ technology.name }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<!-- End Skills -->

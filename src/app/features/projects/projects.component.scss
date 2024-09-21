@@ -1,0 +1,104 @@
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-l);
+}
+
+.project {
+  background: var(--bg-secondary);
+  border-radius: var(--s-m);
+  padding: var(--s-l) var(--s-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-m);
+}
+
+.project-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-m);
+}
+
+#work .technology {
+  background-color: var(--bg);
+}
+
+.project-title,
+.project-duration {
+  display: flex;
+  gap: var(--s-s);
+  align-items: center;
+}
+
+.project-description {
+  flex-grow: 1;
+}
+
+.project-icon {
+  background-image: url("/assets/images/git-pull-request.svg");
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  // grid-auto-rows: auto;
+  // justify-content: space-evenly;
+  gap: 60px;
+}
+
+.project-card {
+  display: flex;
+  align-content: space-between;
+  flex-flow: wrap;
+  transition: all 0.3s ease-out;
+  &:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+  }
+}
+
+.project-card-technologies {
+  display: flex;
+  text-wrap: nowrap;
+  flex-wrap: wrap;
+}
+
+.technology img {
+  max-height: 1.25rem;
+}
+
+// Technologies clicked
+/* Define the active class */
+.selected-technology-label {
+  border: 2px solid #007bff;
+  border-radius: 5px;
+}
+
+.technology .selected-technology {
+  width: 100%;
+}
+
+.technology .technology-btn:checked ~ .selected-technology {
+  display: block;
+}
+
+@media (max-width: 1200px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .project:nth-child(3) {
+    grid-column: 1 / 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+  .project:nth-child(3) {
+    grid-column: 1;
+  }
+}

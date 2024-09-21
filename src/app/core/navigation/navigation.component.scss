@@ -1,0 +1,165 @@
+[data-theme="light"] .d-block-light,
+[data-theme="dark"] .d-block-dark {
+  display: block !important;
+}
+
+.navigation-wrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  transition: top 0.3s ease-in-out;
+  background: var(--bg);
+}
+
+.nav-items {
+  display: flex;
+  gap: var(--s-l);
+}
+
+.nav-hidden {
+  top: -74px; /* Adjust based on navbar height */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px auto;
+  padding: var(--s-m) 0;
+}
+
+.logo p {
+  font-weight: 700;
+  line-height: 0.98;
+}
+
+.logo:hover,
+.header li a:hover,
+.header .menu-btn:hover {
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+// Menu links (not in collapsed)
+.header li a {
+  padding: var(--s-s);
+}
+
+// Menu links
+.header .menu {
+  list-style: none;
+  display: flex;
+  gap: var(--s-m);
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Label menu-icon */
+.header .menu-icon {
+  visibility: hidden;
+  cursor: pointer;
+  padding: var(--s-m);
+  position: relative;
+  user-select: none;
+}
+
+// Label menu-icon line (middle)
+.header .menu-icon .navicon {
+  background: black;
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 20px;
+}
+
+// Label menu-icon line (top and bottom)
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: black;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+.header .menu-icon .navicon:before {
+  top: 6px;
+}
+.header .menu-icon .navicon:after {
+  top: -6px;
+}
+
+// Input menu-btn checkbox off-screen
+.header #menu-btn {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    display: grid;
+    grid-template-areas:
+      "title   title   hamburger"
+      "nav     nav     nav";
+  }
+
+  a.logo {
+    grid-area: title;
+  }
+
+  // Show menu icon
+  .header .menu-icon {
+    grid-area: hamburger;
+    visibility: visible;
+  }
+
+  // Hide navbar menu links
+  .header .menu {
+    grid-area: nav;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    transition: max-height 0.3s ease-out;
+    width: 100%;
+    right: 0;
+    top: 57px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    background-color: var(--bg);
+  }
+
+  .menu li:nth-last-child(1) {
+    padding-bottom: var(--s-m);
+  }
+
+  // Display menu when menu icon is clicked
+  .header #menu-btn:checked ~ .menu {
+    max-height: 400px;
+  }
+
+  // Hide navicon middle line when checked
+  .header #menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  // Rotate navicon top line when checked
+  .header #menu-btn:checked ~ .menu-icon .navicon::before {
+    transform: rotate(-45deg);
+  }
+  // Rotate navicon bottom line when checked
+  .header #menu-btn:checked ~ .menu-icon .navicon::after {
+    transform: rotate(45deg);
+  }
+  .header #menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header #menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+}

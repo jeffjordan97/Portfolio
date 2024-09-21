@@ -1,0 +1,30 @@
+<!-- Testimonials -->
+<section id="testimonials" class="section section-bg">
+  <div class="container">
+    <div class="header center">
+      <p>TESTIMONIALS</p>
+      <h2>My Reviews</h2>
+      <p>
+        What do people say about me? 💭 Here are a few comments I've kindly
+        received from my colleagues this year. 👥
+      </p>
+    </div>
+    <div class="reviews">
+      <div class="review box-shadow" *ngFor="let review of reviews">
+        <p>{{ review.review }}</p>
+        <div class="stars">
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+        </div>
+        <div class="reviewer">
+          <p class="bolder">{{ review.reviewer }}</p>
+          <p>{{ review.reviewerRole }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Testimonials -->

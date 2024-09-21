@@ -1,0 +1,56 @@
+.social-media-div {
+  margin: 2rem 0px;
+}
+
+.social-media-div a {
+  margin: 0 0.5rem;
+}
+
+.social-media-div a:first-child {
+  margin-left: 0;
+}
+
+.social-media-div a:last-child {
+  margin-right: 0;
+}
+
+.icon-button i {
+  color: var(--color-1);
+  border-radius: 2.6rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.3rem;
+  height: 2.6rem;
+  line-height: 2.6rem;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 2.6rem;
+  background-color: white;
+  transition: 0.3s ease-out;
+}
+
+.icon-button i.pi-twitter {
+  font-size: 1rem;
+}
+
+/* Hover Transition */
+.github i:hover,
+.linkedin i:hover,
+.email i:hover,
+.instagram i:hover,
+.x-twitter i:hover {
+  background-color: var(--color-3);
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+  .social-media-div {
+    text-align: center;
+  }
+}
