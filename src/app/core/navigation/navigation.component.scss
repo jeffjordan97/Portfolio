@@ -8,8 +8,13 @@
   top: 0;
   width: 100%;
   z-index: 5;
-  transition: top 0.3s ease-in-out;
-  background: var(--bg);
+  background-color: var(--bg);
+
+  button {
+    border: none;
+    background: none;
+    color: var(--text);
+  }
 }
 
 .nav-items {
@@ -32,6 +37,10 @@
 .logo p {
   font-weight: 700;
   line-height: 0.98;
+
+  &:first-child {
+    color: var(--primary);
+  }
 }
 
 .logo:hover,
@@ -43,54 +52,53 @@
 }
 
 // Menu links (not in collapsed)
-.header li a {
-  padding: var(--s-s);
-}
+.header {
+  li a {
+    padding: var(--s-s);
+  }
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: var(--s-m);
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  .menu-icon {
+    visibility: hidden;
+    cursor: pointer;
+    padding: var(--s-m);
+    position: relative;
+    user-select: none;
 
-// Menu links
-.header .menu {
-  list-style: none;
-  display: flex;
-  gap: var(--s-m);
-  margin: 0;
-  padding: 0;
-  align-items: center;
-}
+    .navicon {
+      background: var(--text);
+      display: block;
+      height: 2px;
+      position: relative;
+      width: 20px;
 
-/* Label menu-icon */
-.header .menu-icon {
-  visibility: hidden;
-  cursor: pointer;
-  padding: var(--s-m);
-  position: relative;
-  user-select: none;
-}
+      // Label menu-icon lines (top and bottom)
+      &::before,
+      &::after {
+        background: var(--text);
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all 0.2s ease-out;
+        width: 100%;
+      }
 
-// Label menu-icon line (middle)
-.header .menu-icon .navicon {
-  background: black;
-  display: block;
-  height: 2px;
-  position: relative;
-  width: 20px;
-}
+      &::before {
+        top: 6px;
+      }
 
-// Label menu-icon line (top and bottom)
-.header .menu-icon .navicon:before,
-.header .menu-icon .navicon:after {
-  background: black;
-  content: "";
-  display: block;
-  height: 100%;
-  position: absolute;
-  transition: all 0.2s ease-out;
-  width: 100%;
-}
-.header .menu-icon .navicon:before {
-  top: 6px;
-}
-.header .menu-icon .navicon:after {
-  top: -6px;
+      &::after {
+        top: -6px;
+      }
+    }
+  }
 }
 
 // Input menu-btn checkbox off-screen

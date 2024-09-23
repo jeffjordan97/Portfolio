@@ -5,7 +5,6 @@ import { HeroComponent } from './features/hero/hero.component';
 import { AboutComponent } from './features/about/about.component';
 import { ExperienceComponent } from './features/experience/experience.component';
 import { ProjectsComponent } from './features/projects/projects.component';
-import { CallToActionHireComponent } from './features/call-to-action-hire/call-to-action-hire.component';
 import { SkillsComponent } from './features/skills/skills.component';
 import { ContactComponent } from './features/contact/contact.component';
 import { FooterComponent } from './core/footer/footer.component';
@@ -20,11 +19,10 @@ import { TestimonialsComponent } from './features/testimonials/testimonials.comp
     NavigationComponent,
     HeroComponent,
     AboutComponent,
+    SkillsComponent,
     ExperienceComponent,
     ProjectsComponent,
     TestimonialsComponent,
-    CallToActionHireComponent,
-    SkillsComponent,
     CallToActionCvComponent,
     ContactComponent,
     FooterComponent,

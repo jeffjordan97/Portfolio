@@ -40,6 +40,11 @@
   width: 16px;
   background-repeat: no-repeat;
   flex-shrink: 0;
+  filter: var(--project-git-icon-style);
+}
+
+:root[data-theme="dark"] .project-icon {
+  filter: invert(1);
 }
 
 .project-grid {

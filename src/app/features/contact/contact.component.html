@@ -10,38 +10,71 @@
       </p>
     </div>
     <div class="contact">
-      <form method="post" action="">
-        <div class="form-group">
-          <p>Name</p>
+      <form method="post" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div>
+          <div class="flex">
+            <p>Name</p>
+            <p
+              *ngIf="
+                contactForm.get('name')?.invalid &&
+                contactForm.get('name')?.touched
+              "
+              class="error"
+            >
+              Required*
+            </p>
+          </div>
           <input
             type="text"
             class="form-control"
             placeholder="Full Name"
-            name="full_name"
-            required=""
+            formControlName="name"
           />
         </div>
-        <div class="form-group">
-          <p>Email</p>
+        <div>
+          <div class="flex">
+            <p>Email</p>
+            <p
+              *ngIf="
+                contactForm.get('email')?.invalid &&
+                contactForm.get('email')?.touched
+              "
+              class="error"
+            >
+              Required*
+            </p>
+          </div>
           <input
             type="email"
             class="form-control"
-            name="email"
+            formControlName="email"
             placeholder="Email"
-            required=""
           />
         </div>
-        <div class="form-group">
-          <p>Message</p>
+        <div>
+          <div class="flex">
+            <p>Message</p>
+            <p
+              *ngIf="
+                contactForm.get('message')?.invalid &&
+                contactForm.get('message')?.touched
+              "
+              class="error"
+            >
+              Required*
+            </p>
+          </div>
           <textarea
             rows="10"
             class="form-control"
-            name="message"
+            formControlName="message"
             placeholder="Type Your Message Here..."
-            required=""
           ></textarea>
         </div>
-        <a class="primary-button">Submit</a>
+        <button type="submit" class="primary-button">Submit</button>
+        <div *ngIf="formSubmitted" class="success">
+          Your message has been sent successfully!
+        </div>
       </form>
       <div class="contact-info">
         <div class="contact-info-section">
@@ -65,7 +98,9 @@
         <div class="contact-info-section">
           <i class="pi pi-envelope"></i>
           <h4>Contact me via email</h4>
-          <p>jeffjordan97&#64;hotmail.co.uk</p>
+          <a href="mailto:jeffjordan97@hotmail.co.uk"
+            ><p>jeffjordan97&#64;hotmail.co.uk</p></a
+          >
         </div>
         <div class="contact-info-section">
           <i class="pi pi-map-marker"></i>

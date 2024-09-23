@@ -3,7 +3,7 @@
 
 :root {
   --text: #010104;
-  --bg: #f7f7f7;
+  --bg: #e6eaee;
   --bg-secondary: #ffffff;
   --primary: #0e3a5d;
   --secondary: #467ca0;
@@ -106,11 +106,13 @@
   --margin-md: 0 6%;
   --border1: 16px;
   --border05: 8px;
+
+  --project-git-icon-style: invert(0);
 }
 
 :root[data-theme="light"] {
   --text: #010104;
-  --bg: #f7f7f7;
+  --bg: #e6eaee;
   --bg-secondary: #ffffff;
   --primary: #0e3a5d;
   --secondary: #467ca0;
@@ -201,6 +203,8 @@
   --accent85: hsl(213, 50%, 31%, 85%);
   --accent90: hsl(213, 50%, 31%, 90%);
   --accent95: hsl(213, 50%, 31%, 95%);
+
+  --project-git-icon-style: invert(1);
 }
 
 html {
@@ -296,6 +300,9 @@ text {
 img {
   display: block;
   max-width: 100%;
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
 }
 
 a {
@@ -336,6 +343,7 @@ section .header {
 
 .primary-button {
   width: fit-content;
+  height: fit-content;
   padding: 0.75em 2em;
   background-color: var(--primary);
   color: var(--bg);
@@ -345,12 +353,11 @@ section .header {
   font-size: var(--p);
   z-index: 2;
   white-space: nowrap;
-  align-self: center;
-}
 
-.primary-button:hover {
-  transform: translate(0, -3px);
-  box-shadow: 0 20px 80px -10px var(--primary);
+  &:hover {
+    transform: translate(0, -3px);
+    box-shadow: 0 5px 20px 2px var(--primary);
+  }
 }
 
 .secondary-button {
@@ -396,7 +403,7 @@ section .header {
   max-width: 600px;
 }
 
-// Technology Skills Buttons
+// Technology Skills
 .technology {
   display: flex;
   gap: var(--s-s);
@@ -404,53 +411,48 @@ section .header {
   height: fit-content;
   border-radius: var(--s-s);
   background-color: var(--bg-secondary);
-  transition: all 0.3s ease-out;
 
-  &:hover {
-    user-select: none;
-    transform: translateY(-5px) scale(1.005) translateZ(0);
-    box-shadow: 6px 6px 10px rgb(0 0 0 / 50%), -1px -1px 10px rgb(221 221 221);
+  input {
+    display: none;
+  }
+
+  img {
+    height: 20px;
+  }
+
+  p {
+    white-space: nowrap;
   }
 }
+// END Technology Skills
 
-.technology input {
-  display: none;
+.hover-shadow {
+  transition: all 0.3s ease-out;
+  &:hover {
+    user-select: none;
+    -webkit-user-select: none;
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5),
+      -1px -1px 10px rgb(221, 221, 221);
+  }
 }
-
-.technology img {
-  height: 20px;
-}
-
-.technology p {
-  white-space: nowrap;
-}
-// END Technology Skills Buttons
 
 .social-links {
   color: var(--text);
   display: flex;
   gap: var(--s-l);
-}
 
-.social-links a:hover {
-  opacity: 0.6;
-}
-
-@media (max-width: 1200px) {
-  .section {
-    padding: 4rem 0;
-  }
-  .section-title {
-    padding-bottom: 2rem;
+  a:hover {
+    opacity: 0.6;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .section {
-    padding: 3rem 0;
+    padding: 5rem 0;
   }
   h1 {
-    font-size: 80px;
+    font-size: 60px;
   }
 }
 

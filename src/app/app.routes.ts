@@ -17,24 +17,17 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'experience',
-    loadComponent: () =>
-      import('../app/features/experience/experience.component').then(
-        (m) => m.ExperienceComponent
-      ),
-  },
-  {
-    path: 'projects',
-    loadComponent: () =>
-      import('../app/features/projects/projects.component').then(
-        (m) => m.ProjectsComponent
-      ),
-  },
-  {
     path: 'skills',
     loadComponent: () =>
       import('../app/features/skills/skills.component').then(
         (m) => m.SkillsComponent
+      ),
+  },
+  {
+    path: 'experience',
+    loadComponent: () =>
+      import('../app/features/experience/experience.component').then(
+        (m) => m.ExperienceComponent
       ),
   },
   {

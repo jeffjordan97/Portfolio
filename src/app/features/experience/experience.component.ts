@@ -64,9 +64,11 @@ export class ExperienceComponent {
       const bottom =
         this.drawLine.getBoundingClientRect().top + this.drawLine.offsetHeight;
       this.items.forEach((item: HTMLElement) => {
-        const circlePosition = item.getBoundingClientRect().top;
+        const logoPositionTop = item.getBoundingClientRect().top;
+        const logoPositionBottom = item.getBoundingClientRect().bottom;
+        const logoPositionToCenter = (logoPositionBottom - logoPositionTop) / 2;
 
-        if (bottom > circlePosition) {
+        if (bottom > logoPositionTop + logoPositionToCenter) {
           item.classList.add('in-view');
         } else {
           item.classList.remove('in-view');

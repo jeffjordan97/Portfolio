@@ -26,20 +26,16 @@ import { NavigationItem, navigationItems } from './types/navigation-item';
   styleUrl: './navigation.component.scss',
   animations: [],
 })
-export class NavigationComponent implements OnInit, AfterViewInit {
+export class NavigationComponent implements OnInit {
   @ViewChild('navigationWrapper', { static: true }) navbarElement!: ElementRef;
   @ViewChild('menuBtn') menuBtn!: ElementRef<HTMLInputElement>; // Menu button element reference
   @ViewChild('menu') menu!: ElementRef<HTMLUListElement>; // Menu element reference
 
   isDarkTheme = false; // Variable to track the current theme
 
-  logoInitials = 'JJ';
   navigationItems = navigationItems;
 
   isNavHidden: boolean = false;
-  private lastScrollTop: number = 0; // Tracks the last scroll position to determine the direction of the navigation
-  private delta: number = 10; // Minimum scroll distance before executing. Threshold to prevent rapid toggling on minor scrolls.
-  private navbarHeight: number = 0; //Height of the navbar used to ensure the navbar hides only after scrolling past it.
 
   constructor(
     private navbarService: NavbarService,
@@ -48,12 +44,9 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    this.menuLinkClickedListener();
-
-    this.clickOutsideMenuListener();
-
-    this.subscribeToRouterEvents();
-
+    // this.menuLinkClickedListener();
+    // this.clickOutsideMenuListener();
+    // this.subscribeToRouterEvents();
     this.applyStoredTheme();
   }
 
@@ -93,12 +86,6 @@ export class NavigationComponent implements OnInit, AfterViewInit {
         }
       }
     });
-  }
-
-  ngAfterViewInit(): void {
-    // Get the navbar's height and pass it to the navbar service for the hero component to adjust its content height
-    const navbarHeight = this.elementRef.nativeElement.offsetHeight;
-    this.navbarService.setNavbarHeight(navbarHeight);
   }
 
   private menuLinkClickedListener() {
@@ -141,26 +128,23 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:scroll', []) // Listens for scroll events and executes the onWindowScroll function
   onWindowScroll(): void {
-    const currentScroll = window.scrollY || document.documentElement.scrollTop;
-
-    if (Math.abs(this.lastScrollTop - currentScroll) <= this.delta) {
-      return;
-    }
-
-    if (
-      currentScroll > this.lastScrollTop &&
-      currentScroll > this.navbarHeight
-    ) {
-      // Scrolling Down
-      this.isNavHidden = true;
-    } else if (
-      currentScroll + window.innerHeight <
-      document.body.scrollHeight
-    ) {
-      // Scrolling Up
-      this.isNavHidden = false;
-    }
-
-    this.lastScrollTop = currentScroll;
+    // const currentScroll = window.scrollY || document.documentElement.scrollTop;
+    // if (Math.abs(this.lastScrollTop - currentScroll) <= this.delta) {
+    //   return;
+    // }
+    // if (
+    //   currentScroll > this.lastScrollTop &&
+    //   currentScroll > this.navbarHeight
+    // ) {
+    //   // Scrolling Down
+    //   this.isNavHidden = true;
+    // } else if (
+    //   currentScroll + window.innerHeight <
+    //   document.body.scrollHeight
+    // ) {
+    //   // Scrolling Up
+    //   this.isNavHidden = false;
+    // }
+    // this.lastScrollTop = currentScroll;
   }
 }
