@@ -62,6 +62,7 @@ form .success {
   flex-direction: column;
   justify-content: space-between;
   row-gap: var(--s-xl);
+  align-items: center;
 }
 
 .contact-info-section {
@@ -85,10 +86,6 @@ form .success {
 @media (max-width: 768px) {
   .contact {
     grid-template-columns: 1fr;
-
-    .contact-info {
-      align-items: center;
-    }
 
     .contact-info-section {
       grid-template-columns: 1fr;

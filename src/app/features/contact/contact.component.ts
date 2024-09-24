@@ -12,6 +12,7 @@ import {
 } from '@angular/forms';
 import { MailService } from '../../core/services/mail.service';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -67,8 +68,7 @@ export class ContactComponent {
     formData.append('email', this.contactForm.get('email')?.value);
     formData.append('body', this.contactForm.get('message')?.value);
     // -- email customization
-    // formData.append('access_key', environment.form_access_key);
-    formData.append('access_key', '6771287c-db52-4103-9b34-b23cadb0648e');
+    formData.append('access_key', environment.form_access_key);
     formData.append('subject', 'Portfolio Website - Contact Form Submission');
     formData.append('from_name', this.contactForm.get('name')?.value);
 

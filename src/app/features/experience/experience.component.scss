@@ -4,7 +4,16 @@
     color 0.1s ease-out, border 0.1s ease-out;
 }
 
+#experience .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .timeline {
+  position: relative;
+  left: -13%;
+
   ul {
     padding: 0;
     margin: 0;
@@ -78,24 +87,24 @@
       transform: translateY(-50%);
     }
 
-    &:nth-child(2n) {
-      div.date {
-        left: 50px;
-        right: unset;
-      }
+    // &:nth-child(2n) {
+    //   div.date {
+    //     left: 50px;
+    //     right: unset;
+    //   }
 
-      div.role {
-        right: 50px;
-        left: unset;
+    //   div.role {
+    //     right: 50px;
+    //     left: unset;
 
-        &::before {
-          left: 100%;
-          right: unset;
-          border-left: 20px solid var(--bg);
-          border-right: 20px solid transparent;
-        }
-      }
-    }
+    //     &::before {
+    //       left: 100%;
+    //       right: unset;
+    //       border-left: 20px solid var(--bg);
+    //       border-right: 20px solid transparent;
+    //     }
+    //   }
+    // }
 
     div.role {
       position: absolute;
@@ -178,27 +187,60 @@
   border-right: 20px solid transparent;
 }
 
-.timeline-item:nth-child(2n) .timeline-item-arrow {
-  left: unset;
-  right: 100%;
-  border-left: 20px solid transparent;
-  border-right: 20px solid aliceblue;
-}
+// .timeline-item:nth-child(2n) .timeline-item-arrow {
+//   left: unset;
+//   right: 100%;
+//   border-left: 20px solid transparent;
+//   border-right: 20px solid aliceblue;
+// }
 
 @media (max-width: 991.98px) {
-  .timeline ul li div.role {
-    width: 330px;
+  .timeline {
+    left: -24%;
   }
 }
 
 @media (max-width: 767.98px) {
-  .timeline ul li div.role {
-    width: 200px;
+  .timeline {
+    left: -25%;
+
+    ul li div.role {
+      width: 320px;
+    }
   }
 }
 
 @media (max-width: 575.98px) {
-  .timeline ul li div.role {
-    width: 130px;
+  .timeline {
+    left: -17%;
+    ul li div.role {
+      width: 200px;
+    }
   }
+}
+
+@media (max-width: 413.98px) {
+  .timeline {
+    left: -15%;
+    ul li div.role {
+      width: 150px;
+    }
+  }
+}
+
+// Animations
+
+@keyframes fadeInLeftTimeline {
+  0% {
+    transform: translateX(200px) translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) translateY(-50%);
+    opacity: 1;
+  }
+}
+.fadeInLeftTimeline {
+  transform: translateX(0) translateY(-50%);
+  animation: fadeInLeftTimeline 1s both;
 }
