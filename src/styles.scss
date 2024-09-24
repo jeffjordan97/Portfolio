@@ -449,7 +449,7 @@ section .header {
 
 @media (max-width: 767.98px) {
   .section {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
   h1 {
     font-size: 60px;
@@ -457,18 +457,68 @@ section .header {
 }
 
 // ANIMATIONS
-@keyframes fade-in {
+@keyframes fadeIn {
   from {
-    scale: 0.8;
     opacity: 0;
   }
   to {
-    scale: 1;
     opacity: 1;
   }
 }
 
-.animation-fade-in {
-  animation: fade-in linear;
-  animation-timeline: view(90% 0%);
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// ANIMATION CLASSES
+.fadeInBefore {
+  opacity: 0;
+}
+
+.slideUpFadeIn {
+  animation: fadeIn 1s both, slideUp 1s;
+}
+
+.slideDownFadeIn {
+  animation: fadeIn 1s both, slideDown 1s;
+}
+
+.slideInRightFadeIn {
+  animation: fadeIn 1s both, slideInRight 1s;
+}
+
+.slideInLeftFadeIn {
+  animation: fadeIn 1s both, slideInLeft 1s;
 }

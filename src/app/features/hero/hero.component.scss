@@ -1,7 +1,7 @@
 section#hero {
   position: relative;
-  height: 70vh;
-  height: 70dvh;
+  height: auto;
+  padding-top: 10rem;
   display: flex;
   align-items: center;
 }
@@ -81,13 +81,12 @@ section#hero {
 }
 
 /* Media Query */
-@media (max-width: 1200px) {
+@media (max-width: 1199.98px) {
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   section#hero {
-    height: 90vh;
-    height: 90dvh;
+    padding-top: 6rem;
   }
 }
 

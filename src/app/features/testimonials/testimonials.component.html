@@ -10,7 +10,10 @@
       </p>
     </div>
     <div class="reviews">
-      <div class="review box-shadow" *ngFor="let review of reviews">
+      <div
+        class="review box-shadow hover-shadow fadeInBefore"
+        *ngFor="let review of reviews"
+      >
         <p class="italic">{{ review.review }}</p>
         <div class="stars">
           <i class="pi pi-star-fill"></i>

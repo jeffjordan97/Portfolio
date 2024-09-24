@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Role, roles } from './types/roles';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
@@ -10,7 +10,7 @@ import { CardModule } from 'primeng/card';
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss',
 })
-export class ExperienceComponent {
+export class ExperienceComponent implements OnInit {
   roles: Role[] = roles;
 
   items!: HTMLElement[];
