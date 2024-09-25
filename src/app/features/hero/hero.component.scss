@@ -80,13 +80,9 @@ section#hero {
   transform-origin: 70% 70%;
 }
 
-/* Media Query */
-@media (max-width: 1199.98px) {
-}
-
 @media (max-width: 767.98px) {
   section#hero {
-    padding-top: 6rem;
+    padding-top: 8rem;
   }
 }
 
