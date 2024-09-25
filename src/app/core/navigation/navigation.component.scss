@@ -43,14 +43,6 @@
   }
 }
 
-.logo:hover,
-.header li a:hover,
-.header .menu-btn:hover {
-  opacity: 0.6;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
 // Menu links (not in collapsed)
 .header {
   li a {
@@ -169,5 +161,15 @@
   .header #menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
   .header #menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
     top: 0;
+  }
+}
+
+@media (hover: hover) {
+  .logo:hover,
+  .header li a:hover,
+  .header .menu-btn:hover {
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
   }
 }
