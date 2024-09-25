@@ -1,6 +1,6 @@
 .projects {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--s-l);
 }
 
@@ -35,7 +35,7 @@
 }
 
 .project-icon {
-  background-image: url("/Portfolio/assets/images/git-pull-request.svg");
+  background-image: url("/assets/images/git-pull-request.svg");
   height: 16px;
   width: 16px;
   background-repeat: no-repeat;
@@ -88,15 +88,6 @@
 
 .technology .technology-btn:checked ~ .selected-technology {
   display: block;
-}
-
-@media (max-width: 1199.98px) {
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .project:nth-child(3) {
-    grid-column: 1 / 3;
-  }
 }
 
 @media (max-width: 767.98px) {

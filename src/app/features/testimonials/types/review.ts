@@ -7,7 +7,7 @@ export interface Review {
 export const reviews: Review[] = [
   {
     review:
-      '“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”',
+      '“Jeff consistently demonstrates exceptional communication and collaboration skills. His ability to clearly articulate technical concepts and actively engage with stakeholders has been invaluable.”',
     reviewer: 'Richard Wilson',
     reviewerRole: 'Senior Project Manager',
   },
@@ -19,7 +19,7 @@ export const reviews: Review[] = [
   },
   {
     review:
-      '“Jeff has proved himself to be a quick learner and does not hesitate to take ownership of tasks. His cross-team collaboration this year has been excellent.”',
+      "“Jeff has proved himself to be a quick learner. I'm impressed that his motivation was not only to expedite approval of PRs and reduce lead time, but to also to learn from studying the code of others.”",
     reviewer: 'Henry Day',
     reviewerRole: 'Senior Manager - Software Engineering',
   },

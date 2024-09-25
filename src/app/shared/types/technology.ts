@@ -192,6 +192,16 @@ export const npm: Technology = {
   isSelected: false,
 };
 
+export const nuget: Technology = {
+  name: 'NuGet',
+  type: TechnologyType.frameworksAndTools,
+  image: './assets/images/technologies/nuget.png',
+  color: '#5D2B86',
+  description: 'Nuget is a package manager for.NET development.',
+  url: 'https://www.nuget.org/',
+  isSelected: false,
+};
+
 // Cloud and DevOps
 export const azure: Technology = {
   name: 'Azure',
@@ -347,6 +357,16 @@ export const jira: Technology = {
   isSelected: false,
 };
 
+export const moveit: Technology = {
+  name: 'MoveIT',
+  type: TechnologyType.other,
+  image: './assets/images/technologies/moveit.png',
+  color: '#00A6ED',
+  description: 'MoveIT is a managed file transfer software product',
+  url: 'https://www.progress.com/moveit',
+  isSelected: false,
+};
+
 export const ibmMQ: Technology = {
   name: 'IBM MQ',
   type: TechnologyType.other,
@@ -394,6 +414,7 @@ export const frameworksAndTools: Technology[] = [
   maven,
   angular,
   npm,
+  nuget,
   bootstrap,
   primeNg,
   dotNetCore,
@@ -420,6 +441,8 @@ export const otherTechnologies: Technology[] = [
   dynatrace,
   elasticSearch,
   jira,
+  trello,
+  moveit,
   ibmMQ,
 ];
 
@@ -438,6 +461,7 @@ export const allTechnologies: Technology[] = [
   dotNetCore,
   maven,
   npm,
+  nuget,
   azure,
   kubernetes,
   docker,
@@ -455,5 +479,7 @@ export const allTechnologies: Technology[] = [
   dynatrace,
   elasticSearch,
   jira,
+  trello,
+  moveit,
   ibmMQ,
 ];
