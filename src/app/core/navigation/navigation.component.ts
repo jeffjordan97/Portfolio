@@ -30,13 +30,16 @@ export class NavigationComponent implements OnInit {
 
   // Apply stored theme from localStorage or match system preferences
   applyStoredTheme(): void {
-    const storedTheme =
-      localStorage.getItem('theme') ||
-      (window.matchMedia('(prefers-color-scheme: light)').matches
-        ? 'light'
-        : 'dark');
-    this.isDarkTheme = storedTheme === 'dark'; // Set isDarkTheme based on the stored theme
-    document.documentElement.setAttribute('data-theme', storedTheme);
+    const storedTheme = localStorage.getItem('theme');
+    const systemPrefersLight = window.matchMedia(
+      '(prefers-color-scheme: light)'
+    );
+
+    // Default to dark theme if no stored theme (null) or system preference is not set
+    const themeToApply = storedTheme || (systemPrefersLight ? 'light' : 'dark');
+
+    this.isDarkTheme = storedTheme === 'dark'; // Set isDarkTheme based on the resolved theme
+    document.documentElement.setAttribute('data-theme', themeToApply);
   }
 
   // Toggle between light and dark themes
