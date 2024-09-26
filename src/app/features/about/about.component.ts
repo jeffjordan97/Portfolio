@@ -11,7 +11,7 @@ import { Utils } from '../../core/utils/utils';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
-  aboutHeaderCards: AboutHeaderCard[] = aboutHeaderCards;
+  cards: AboutHeaderCard[] = aboutHeaderCards;
 
   constructor(private elementRef: ElementRef) {}
 

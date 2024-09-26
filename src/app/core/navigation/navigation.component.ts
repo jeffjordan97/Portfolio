@@ -1,22 +1,12 @@
 import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import {
-  AfterViewInit,
   Component,
   ElementRef,
   HostListener,
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { NavbarService } from '../../shared/directives/navbar/navbar.service';
 import { CommonModule } from '@angular/common';
-import { NavigationEnd, Router } from '@angular/router';
-import { NavigationItem, navigationItems } from './types/navigation-item';
+import { navigationItems } from './types/navigation-item';
 
 @Component({
   selector: 'app-navigation',
@@ -27,27 +17,20 @@ import { NavigationItem, navigationItems } from './types/navigation-item';
   animations: [],
 })
 export class NavigationComponent implements OnInit {
-  @ViewChild('navigationWrapper', { static: true }) navbarElement!: ElementRef;
   @ViewChild('menuBtn') menuBtn!: ElementRef<HTMLInputElement>; // Menu button element reference
-  @ViewChild('menu') menu!: ElementRef<HTMLUListElement>; // Menu element reference
 
   isDarkTheme = false; // Variable to track the current theme
-
   navigationItems = navigationItems;
 
-  isNavHidden: boolean = false;
-
-  constructor(
-    private navbarService: NavbarService,
-    private elementRef: ElementRef,
-    private router: Router
-  ) {}
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit(): void {
-    // this.menuLinkClickedListener();
-    // this.clickOutsideMenuListener();
-    // this.subscribeToRouterEvents();
     this.applyStoredTheme();
+  }
+
+  ngAfterViewInit(): void {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
   }
 
   // Apply stored theme from localStorage or match system preferences
@@ -71,30 +54,6 @@ export class NavigationComponent implements OnInit {
     localStorage.setItem('theme', targetTheme);
   }
 
-  private subscribeToRouterEvents() {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        const fragment = this.router.parseUrl(this.router.url).fragment;
-        if (fragment) {
-          const element = document.querySelector(`#${fragment}`);
-          if (element)
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-              inline: 'nearest',
-            });
-        }
-      }
-    });
-  }
-
-  private menuLinkClickedListener() {
-    // Listen for click events on the menu items
-    this.menu.nativeElement.querySelectorAll('a').forEach((a) => {
-      a.addEventListener('click', () => this.hideMenu());
-    });
-  }
-
   // Listens for click events on the entire document. If a click occurs outside the menu and menu button, checks the window width and hides the menu if window width is 768px or less
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
@@ -113,38 +72,5 @@ export class NavigationComponent implements OnInit {
     if (this.menuBtn.nativeElement.checked) {
       this.menuBtn.nativeElement.checked = false;
     }
-  }
-
-  private clickOutsideMenuListener() {
-    const menuLinks = document.querySelectorAll('.header li a');
-
-    menuLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        const menuBtn = document.getElementById('menu-btn') as HTMLInputElement;
-        menuBtn.checked = false;
-      });
-    });
-  }
-
-  @HostListener('window:scroll', []) // Listens for scroll events and executes the onWindowScroll function
-  onWindowScroll(): void {
-    // const currentScroll = window.scrollY || document.documentElement.scrollTop;
-    // if (Math.abs(this.lastScrollTop - currentScroll) <= this.delta) {
-    //   return;
-    // }
-    // if (
-    //   currentScroll > this.lastScrollTop &&
-    //   currentScroll > this.navbarHeight
-    // ) {
-    //   // Scrolling Down
-    //   this.isNavHidden = true;
-    // } else if (
-    //   currentScroll + window.innerHeight <
-    //   document.body.scrollHeight
-    // ) {
-    //   // Scrolling Up
-    //   this.isNavHidden = false;
-    // }
-    // this.lastScrollTop = currentScroll;
   }
 }

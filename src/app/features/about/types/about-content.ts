@@ -6,10 +6,10 @@ export interface AboutHeaderCard {
 
 export const aboutHeaderCards: AboutHeaderCard[] = [
   {
-    icon: 'pi pi-pencil',
+    icon: 'pi pi-pen-to-square',
     title: 'Design',
     description:
-      'Blueprint for architecture, user interfaces, and technical requirements.',
+      'Blueprints for architecture, user interfaces, and technical requirements.',
   },
   {
     icon: 'pi pi-code',
@@ -18,15 +18,15 @@ export const aboutHeaderCards: AboutHeaderCard[] = [
       'Building the core features and functionality to create the software.',
   },
   {
-    icon: 'pi pi-desktop',
+    icon: 'pi pi-download',
     title: 'Deploy',
     description:
-      'Releasing the developed software to the production environment.',
+      'Preparing, packaging and releasing software to the production environment.',
   },
   {
-    icon: 'pi pi-cog',
+    icon: 'pi pi-wrench',
     title: 'Support',
     description:
-      'Maintaining software post-deployment, addressing bugs, and providing updates.',
+      'Maintaining software, addressing bugs, and providing updates.',
   },
 ];

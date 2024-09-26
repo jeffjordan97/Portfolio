@@ -48,6 +48,12 @@
   li a {
     padding: var(--s-s);
   }
+  // Input menu-btn checkbox off-screen
+  #menu-btn {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+  }
   .menu {
     list-style: none;
     display: flex;
@@ -93,52 +99,45 @@
   }
 }
 
-// Input menu-btn checkbox off-screen
-.header #menu-btn {
-  position: absolute;
-  top: -100%;
-  left: -100%;
-}
-
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
+  a.logo {
+    grid-area: title;
+  }
+
   .header {
     display: grid;
     grid-template-areas:
       "title   title   hamburger"
       "nav     nav     nav";
-  }
 
-  a.logo {
-    grid-area: title;
-  }
+    // Show menu icon
+    .menu-icon {
+      grid-area: hamburger;
+      visibility: visible;
+    }
 
-  // Show menu icon
-  .header .menu-icon {
-    grid-area: hamburger;
-    visibility: visible;
-  }
+    // Hide navbar menu links
+    .menu {
+      grid-area: nav;
+      max-height: 0;
+      overflow: hidden;
+      position: absolute;
+      transition: max-height 0.3s ease-out;
+      width: 100%;
+      right: 0;
+      top: 57px;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
+      align-items: center;
+      background-color: var(--bg);
 
-  // Hide navbar menu links
-  .header .menu {
-    grid-area: nav;
-    max-height: 0;
-    overflow: hidden;
-    position: absolute;
-    transition: max-height 0.3s ease-out;
-    width: 100%;
-    right: 0;
-    top: 57px;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5);
-    align-items: center;
-    background-color: var(--bg);
-  }
-
-  .menu li:nth-last-child(1) {
-    padding-bottom: var(--s-m);
+      li:nth-last-child(1) {
+        padding-bottom: var(--s-m);
+      }
+    }
   }
 
   // Display menu when menu icon is clicked

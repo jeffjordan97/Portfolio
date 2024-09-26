@@ -12,33 +12,13 @@
       </p>
     </div>
     <div class="cards">
-      <div class="card box-shadow hover-shadow fadeInBefore">
-        <i class="pi pi-pen-to-square"></i>
-        <h3>Design</h3>
-        <p>
-          Blueprints for architecture, user interfaces, and technical
-          requirements.
-        </p>
-      </div>
-      <div class="card box-shadow hover-shadow fadeInBefore">
-        <i class="pi pi-code"></i>
-        <h3>Develop</h3>
-        <p>
-          Building the core features and functionality to create the software.
-        </p>
-      </div>
-      <div class="card box-shadow hover-shadow fadeInBefore">
-        <i class="pi pi-download"></i>
-        <h3>Deploy</h3>
-        <p>
-          Preparing, packaging and releasing software to the production
-          environment.
-        </p>
-      </div>
-      <div class="card box-shadow hover-shadow fadeInBefore">
-        <i class="pi pi-wrench"></i>
-        <h3>Support</h3>
-        <p>Maintaining software, addressing bugs, and providing updates.</p>
+      <div
+        *ngFor="let card of cards"
+        class="card box-shadow hover-shadow fadeInBefore"
+      >
+        <i [ngClass]="card.icon"></i>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
       </div>
     </div>
     <div class="content">
