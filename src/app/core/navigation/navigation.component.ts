@@ -28,18 +28,13 @@ export class NavigationComponent implements OnInit {
     this.applyStoredTheme();
   }
 
-  ngAfterViewInit(): void {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
-  }
-
   // Apply stored theme from localStorage or match system preferences
   applyStoredTheme(): void {
     const storedTheme =
       localStorage.getItem('theme') ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light');
+      (window.matchMedia('(prefers-color-scheme: light)').matches
+        ? 'light'
+        : 'dark');
     this.isDarkTheme = storedTheme === 'dark'; // Set isDarkTheme based on the stored theme
     document.documentElement.setAttribute('data-theme', storedTheme);
   }
