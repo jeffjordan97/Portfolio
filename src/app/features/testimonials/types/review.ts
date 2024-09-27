@@ -23,4 +23,10 @@ export const reviews: Review[] = [
     reviewer: 'Henry Day',
     reviewerRole: 'Senior Manager - Software Engineering',
   },
+  {
+    review:
+      "“Jeff's passion for learning is evident in his ability to quickly pick up new technologies, no matter how daunting they may seem. His eagerness to tackle new challenges has made him a standout member of the team.”",
+    reviewer: 'Vinny Hassell',
+    reviewerRole: 'Senior Software Engineer',
+  },
 ];
