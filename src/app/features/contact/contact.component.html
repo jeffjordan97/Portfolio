@@ -75,6 +75,9 @@
         <div *ngIf="formSubmitted" class="success">
           Your message has been sent successfully!
         </div>
+        <div *ngIf="formSendError" class="error">
+          Something went wrong, please try again!
+        </div>
       </form>
       <div class="contact-info">
         <div class="contact-info-section">

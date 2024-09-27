@@ -26,6 +26,7 @@ export class ContactComponent {
 
   contactForm!: FormGroup;
   formSubmitted: boolean = false;
+  formSendError: boolean = false;
 
   constructor(private fb: FormBuilder, private mailService: MailService) {
     // Initialize the form group with validation rules
@@ -41,8 +42,6 @@ export class ContactComponent {
     console.log('Form Valid = ', this.contactForm.valid);
     if (this.contactForm.valid) {
       this.sendEmail();
-      this.formSubmitted = true;
-      this.contactForm.reset();
     } else {
       this.markFormControlsAsTouched();
     }
@@ -77,6 +76,7 @@ export class ContactComponent {
       this.contactForm.reset();
     } catch (err) {
       // handle error
+      this.formSendError = true;
       console.log('Something went wrong, try again!');
     }
   }
