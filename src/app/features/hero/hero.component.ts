@@ -35,7 +35,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit() {
-    this.startAnimation();
+    // this.startAnimation();
   }
 
   startAnimation(): void {
