@@ -40,10 +40,9 @@ export class ContactComponent {
   onSubmit() {
     console.log('Form Valid = ', this.contactForm.valid);
     if (this.contactForm.valid) {
-      // this.sendEmail();
+      this.sendEmail();
       this.formSubmitted = true;
       this.contactForm.reset();
-      console.log('Sent form: ' + this.contactForm);
     } else {
       this.markFormControlsAsTouched();
     }
@@ -59,15 +58,10 @@ export class ContactComponent {
 
   // Your sendEmail function
   async sendEmail() {
-    const formDataRaw = this.contactForm.value;
-    console.log('Form Data:', formDataRaw);
-    // Add your email sending logic here
-
     let formData: FormData = new FormData();
     formData.append('name', this.contactForm.get('name')?.value);
     formData.append('email', this.contactForm.get('email')?.value);
     formData.append('body', this.contactForm.get('message')?.value);
-    // -- email customization
     formData.append('access_key', environment.form_access_key);
     formData.append('subject', 'Portfolio Website - Contact Form Submission');
     formData.append('from_name', this.contactForm.get('name')?.value);

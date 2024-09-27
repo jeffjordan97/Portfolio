@@ -16,11 +16,10 @@
       >
         <p class="italic">{{ review.review }}</p>
         <div class="stars">
-          <i class="pi pi-star-fill"></i>
-          <i class="pi pi-star-fill"></i>
-          <i class="pi pi-star-fill"></i>
-          <i class="pi pi-star-fill"></i>
-          <i class="pi pi-star-fill"></i>
+          <i
+            *ngFor="let star of stars; let i = index"
+            class="pi pi-star-fill"
+          ></i>
         </div>
         <div class="reviewer">
           <p class="bolder">{{ review.reviewer }}</p>

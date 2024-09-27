@@ -11,6 +11,7 @@ import { Review, reviews } from './types/review';
 })
 export class TestimonialsComponent {
   reviews: Review[] = reviews;
+  stars = new Array(5);
 
   constructor(private elementRef: ElementRef) {}
 

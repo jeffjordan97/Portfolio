@@ -19,7 +19,7 @@ import { navigationItems } from './types/navigation-item';
 export class NavigationComponent implements OnInit {
   @ViewChild('menuBtn') menuBtn!: ElementRef<HTMLInputElement>; // Menu button element reference
 
-  isDarkTheme = false; // Variable to track the current theme
+  isDarkTheme = true; // Variable to track the current theme
   navigationItems = navigationItems;
 
   constructor(private elementRef: ElementRef) {}
@@ -31,15 +31,13 @@ export class NavigationComponent implements OnInit {
   // Apply stored theme from localStorage or match system preferences
   applyStoredTheme(): void {
     const storedTheme = localStorage.getItem('theme');
-    const systemPrefersLight = window.matchMedia(
-      '(prefers-color-scheme: light)'
-    );
 
-    // Default to dark theme if no stored theme (null) or system preference is not set
-    const themeToApply = storedTheme || (systemPrefersLight ? 'light' : 'dark');
+    // Default to dark theme if stored theme is not light
+    const themeToApply = storedTheme === 'light' ? 'light' : 'dark';
 
-    this.isDarkTheme = storedTheme === 'dark'; // Set isDarkTheme based on the resolved theme
+    this.isDarkTheme = themeToApply === 'dark'; // Set isDarkTheme based on the resolved theme
     document.documentElement.setAttribute('data-theme', themeToApply);
+    localStorage.setItem('theme', themeToApply);
   }
 
   // Toggle between light and dark themes

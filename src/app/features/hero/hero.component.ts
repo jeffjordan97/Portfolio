@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   OnDestroy,
@@ -20,7 +19,6 @@ import { SocialMediaLinksComponent } from './social-media-links/social-media-lin
 })
 export class HeroComponent implements OnInit, OnDestroy {
   heroContent: HeroContent = heroContent;
-  // https://drive.google.com/file
 
   @ViewChild('typingText', { static: true }) textElement!: ElementRef;
 
